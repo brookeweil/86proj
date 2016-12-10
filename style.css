@@ -11,8 +11,8 @@ input {
     border: 1px solid black
 }
 
-#button1 {background-color: red;} /* Green */
-#button2 {background-color: orange;} /* Blue */
-#button3 {background-color: yellow;} /* Red */ 
-#button4 {background-color: green;} /* Gray */ 
-#button5 {background-color: blue;} /* Black */
+#buttonRed {background-color: red;} /* Green */
+#buttonOrange {background-color: orange;} /* Blue */
+#buttonYellow {background-color: yellow;} /* Red */ 
+#buttonGreen {background-color: green;} /* Gray */ 
+#buttonBlue {background-color: blue;} /* Black */
