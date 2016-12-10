@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 window.onload = function(){ 
 
 
@@ -24,4 +25,18 @@ document.getElementById("buttonBlue").onclick = function(){
 
 console.log("yo");
 
+>>>>>>> Stashed changes
+=======
+window.onload = function () {
+    console.log ("App.js y'all!");
+
+    document.getElementById("button1").onclick = function () {
+            document.getElementById("currcolor").style = "background-color:red";
+    };
+
+
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    var img = document.getElementById("scream");
+    ctx.drawImage(img,10,10);
 };
