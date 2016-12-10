@@ -8,6 +8,8 @@ window.onload = function(){
     var canvas = document.getElementById("myCanvas");
     ctx = canvas.getContext("2d");
     ctx.moveTo(0,0);
+    ctx.lineWidth=2;
+
 
     var color;
 
@@ -43,12 +45,13 @@ function initButtons () {
     document.getElementById("buttonBlue").onclick = function(){
             document.getElementById("currcolor").style = "background-color: blue";
     };
+    document.getElementById("buttonBlack").onclick = function(){
+            document.getElementById("currcolor").style = "background-color: black";
+    };
 }
 
+// Updates drawing color
 function getCurrentColor() {
-    console.log ("Color is: ")
-    console.log (jQuery('#currcolor').css("background-color"));
     ctx.strokeStyle=(jQuery('#currcolor').css("background-color"));
-    // console.log (currcolor.style.backgroundColor)
 }
 
