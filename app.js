@@ -22,36 +22,37 @@ var ctx = canvas.getContext("2d");
 ctx.moveTo(0,0);
 ctx.lineTo(200,100);
 ctx.stroke();
-
-var xprediction;
-var yprediction;
-
-webgazer.setGazeListener(function(data, elapsedTime) {
-    if (data == null) {
-        return;
-    }
-    xprediction = data.x; //these x coordinates are relative to the viewport 
-    yprediction = data.y; //these y coordinates are relative to the viewport
-    console.log("Time elapsed: " + elapsedTime ); //elapsed time is based on time since begin was called
-    console.log("X Coord " + xprediction ); 
-    console.log("Y Coord " + yprediction ); 
-}).begin();
-
-
-
 ctx.lineTo(600,100);
 ctx.stroke();
 
-webgazer.setGazeListener(function(data, elapsedTime) {
-                if (data == null) {
-                        return;
-                }
-                var xprediction = data.x; //these x coordinates are relative to the viewport 
-                var yprediction = data.y; //these y coordinates are relative to the viewport
-                ctx.lineTo(xprediction,yprediction);
-                ctx.stroke();
-                console.log(elapsedTime); //elapsed time is based on time since begin was called
-        }).begin();
 
+
+var xprediction;
+var yprediction;
+webgazer.setGazeListener(function(data, elapsedTime) {
+        if (data == null) {
+                return;
+        }
+        var xprediction = data.x; //these x coordinates are relative to the viewport 
+        var yprediction = data.y; //these y coordinates are relative to the viewport
+        ctx.lineTo(xprediction,yprediction);
+        ctx.stroke();
+        console.log(elapsedTime); //elapsed time is based on time since begin was called
+}).begin();
+webgazer.pause();
+
+//make this into a key listner as well!!!!!
+document.getElementById("play").onclick = function(){
+    var state = document.getElementById("play").value;
+    if (state == "start") {
+        document.getElementById("play").value = "stop";
+        webgazer.resume();
+
+    }
+    else {
+        document.getElementById("play").value = "start";
+        webgazer.pause();
+    }
+};
 
 };
