@@ -23,5 +23,19 @@ ctx.moveTo(0,0);
 ctx.lineTo(200,100);
 ctx.stroke();
 
+var xprediction;
+var yprediction;
+
+webgazer.setGazeListener(function(data, elapsedTime) {
+    if (data == null) {
+        return;
+    }
+    xprediction = data.x; //these x coordinates are relative to the viewport 
+    yprediction = data.y; //these y coordinates are relative to the viewport
+    console.log("Time elapsed: " + elapsedTime ); //elapsed time is based on time since begin was called
+    console.log("X Coord " + xprediction ); 
+    console.log("Y Coord " + yprediction ); 
+}).begin();
+
 
 };
