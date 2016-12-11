@@ -16,33 +16,38 @@ window.onload = function(){
     currentColor = (jQuery('#currcolor').css("background-color"));  //init color
 
 
-    //make this into a key listner as well!!!!!
-    document.getElementById("play").onclick = function(){
-    var state = document.getElementById("play").value;
-    if (state == "start") {
-        document.getElementById("play").value = "stop";
-        if (gameStart == true){
-            webgazer.resume();
-        } else {
-                webgazer.setGazeListener(function(data, elapsedTime) {
-                if (data == null) {
-                    return;
-                }
-                getCurrentColor();
-                xprediction = data.x; //these x coordinates are relative to the viewport 
-                yprediction = data.y; //these y coordinates are relative to the viewport
-                ctx.lineTo(xprediction,yprediction);
-                ctx.stroke();
-                console.log(elapsedTime); //elapsed time is based on time since begin was called
-                    }).begin();
-                webgazer.pause();
-                gameStart == true;
+
+    //start/stop by button or by hitting any key
+    document.getElementById("play").onclick = gamePlay;
+    document.onkeypress = gamePlay;
+
+
+    function gamePlay(){
+        var state = document.getElementById("play").value;
+        if (state == "start") {
+            document.getElementById("play").value = "stop";
+            if (gameStart == true){
+                webgazer.resume();
+            } else {
+                    webgazer.setGazeListener(function(data, elapsedTime) {
+                    if (data == null) {
+                        return;
+                    }
+                    getCurrentColor();
+                    xprediction = data.x; //these x coordinates are relative to the viewport 
+                    yprediction = data.y; //these y coordinates are relative to the viewport
+                    ctx.lineTo(xprediction,yprediction);
+                    ctx.stroke();
+                    console.log(elapsedTime); //elapsed time is based on time since begin was called
+                        }).begin();
+                    webgazer.pause();
+                  
+            }
         }
-    }
-    else {
-        document.getElementById("play").value = "start";
-        webgazer.pause();
-    }
+        else {
+            document.getElementById("play").value = "start";
+            webgazer.pause();
+        }
     };
 };
 
