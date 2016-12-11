@@ -8,13 +8,13 @@ input {
     display: inline-block;
     font-size: 16px;
     float: left;
-    border: 1px solid black
+    border: 1px solid grey
 }
 
 canvas {
 /*    width : 90vw;
     height : 90vh;*/
-    border: 2px solid grey
+    border: 1px solid grey
 }
 
 #buttonRed {background-color: red;} /* Green */
@@ -22,4 +22,5 @@ canvas {
 #buttonYellow {background-color: yellow;} /* Red */ 
 #buttonGreen {background-color: green;} /* Gray */ 
 #buttonBlue {background-color: blue;} /* Black */
+#buttonPurple {background-color: purple;} /* Black */
 #buttonBlack {background-color: black;} /* Black */
