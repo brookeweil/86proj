@@ -12,7 +12,6 @@ window.onload = function(){
 
 
     var color;
-
     var xprediction;
     var yprediction;
 
@@ -27,7 +26,21 @@ window.onload = function(){
         ctx.stroke();
         console.log(elapsedTime); //elapsed time is based on time since begin was called
             }).begin();
+
+    //make this into a key listner as well!!!!!
+    document.getElementById("play").onclick = function(){
+    var state = document.getElementById("play").value;
+    if (state == "start") {
+        document.getElementById("play").value = "stop";
+        webgazer.resume();
+    }
+    else {
+        document.getElementById("play").value = "start";
+        webgazer.pause();
+    }
+    };
 };
+
 
 function initButtons () {
     document.getElementById("buttonRed").onclick = function(){
