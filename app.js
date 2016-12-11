@@ -21,8 +21,8 @@ window.onload = function(){
     document.getElementById("play").onclick = function(){
     var state = document.getElementById("play").value;
     if (state == "start") {
+        document.getElementById("play").value = "stop";
         if (gameStart == true){
-            document.getElementById("play").value = "stop";
             webgazer.resume();
         } else {
                 webgazer.setGazeListener(function(data, elapsedTime) {
