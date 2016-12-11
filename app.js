@@ -49,6 +49,9 @@ window.onload = function(){
 
 
 function initButtons () {
+    document.getElementById("buttonDarkRed").onclick = function(){
+            document.getElementById("currcolor").style = "background-color: DarkRed";
+    };
     document.getElementById("buttonRed").onclick = function(){
             document.getElementById("currcolor").style = "background-color: red";
     };
@@ -61,11 +64,20 @@ function initButtons () {
     document.getElementById("buttonGreen").onclick = function(){
             document.getElementById("currcolor").style = "background-color: green";
     };
+    document.getElementById("buttonTurquoise").onclick = function(){
+            document.getElementById("currcolor").style = "background-color: turquoise";
+    };
     document.getElementById("buttonBlue").onclick = function(){
             document.getElementById("currcolor").style = "background-color: blue";
     };
+    document.getElementById("buttonNavy").onclick = function(){
+            document.getElementById("currcolor").style = "background-color: navy";
+    };
     document.getElementById("buttonPurple").onclick = function(){
             document.getElementById("currcolor").style = "background-color: purple";
+    };
+    document.getElementById("buttonPink").onclick = function(){
+            document.getElementById("currcolor").style = "background-color: fuchsia";
     };
     document.getElementById("buttonBlack").onclick = function(){
             document.getElementById("currcolor").style = "background-color: black";
