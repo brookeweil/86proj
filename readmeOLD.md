@@ -1,37 +1,31 @@
-I~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-|
-|   README
-|   
-|       Comp 86 Assignment 7: Final Project
-|       EyeDraw: a drawing application using gaze tracking
-|
-|           by: Maya DeBellis (mdbel01) and Brooke Weil (bweil01)
-|         date: 11 December 2016
-|
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-See HOW_TO_RUN for instructions on running a demo of EyeDraw.
-
+###############################################################################
+#
+#   Comp 86 Assignment 6
+#
+#       by: Maya DeBellis (mdebel01) and Brooke Weil (bweil01)
+#     date: 29 November 2016
+#
+###############################################################################
 
 --------------------------------------------------------------------------------
 Objects:
 
-- Eyetracker (webgazer)
+- Eyetracker
 - Drawing canvas
-- Buttons
+- Color Buttons
 
 --------------------------------------------------------------------------------
 Inheritence Hierarchy:
 
-Buttons -> 2 types of buttons that inherit from a general input button:
+Buttons - 2 types of buttons that inherit from a general button:
                 - change color
                 - start and stop drawing
 
 --------------------------------------------------------------------------------
 Aggregation Hierarchy:
 
-Drawing canvas - stores and displays drawing infomation created by interpreting 
-                 input from the buttons and eyetracker.
+Drawing canvas - stores infomation coming from the buttons and eyetracker.
+        Contains display of webcam image provided by the eyetracker.
 
 --------------------------------------------------------------------------------
 Secrets:
@@ -48,3 +42,5 @@ Collabortation:
 The drawing canvas will take in location data from the eyetracker to know 
 where to draw. It will also take in input from the buttons to know when to run
 the draw commands and what color to use.
+
+
