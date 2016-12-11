@@ -1,20 +1,19 @@
 var ctx;
+var currentColor;
+var xprediction;
+var yprediction;
 
 window.onload = function(){ 
 
     // Initialize buttons and canvas
     initButtons();
 
+    var gameStart = false;
     var canvas = document.getElementById("myCanvas");
     ctx = canvas.getContext("2d");
     ctx.moveTo(500,300);
     ctx.lineWidth=2;
-
-
-    var color;
-    var xprediction;
-    var yprediction;
-    var gameStart = false;
+    currentColor = (jQuery('#currcolor').css("background-color"));  //init color
 
 
     //make this into a key listner as well!!!!!
@@ -30,8 +29,8 @@ window.onload = function(){
                     return;
                 }
                 getCurrentColor();
-                var xprediction = data.x; //these x coordinates are relative to the viewport 
-                var yprediction = data.y; //these y coordinates are relative to the viewport
+                xprediction = data.x; //these x coordinates are relative to the viewport 
+                yprediction = data.y; //these y coordinates are relative to the viewport
                 ctx.lineTo(xprediction,yprediction);
                 ctx.stroke();
                 console.log(elapsedTime); //elapsed time is based on time since begin was called
@@ -86,6 +85,13 @@ function initButtons () {
 
 // Updates drawing color
 function getCurrentColor() {
-    ctx.strokeStyle=(jQuery('#currcolor').css("background-color"));
+    var newColor = (jQuery('#currcolor').css("background-color"));
+    if (newColor != currentColor) {
+        console.log ("new color!");
+        ctx.beginPath();
+        ctx.moveTo(xprediction, yprediction);    // start new line
+        ctx.strokeStyle = newColor;
+        currentColor = newColor;
+    }
 }
 
