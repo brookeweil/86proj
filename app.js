@@ -58,6 +58,9 @@ function initButtons () {
     document.getElementById("buttonBlue").onclick = function(){
             document.getElementById("currcolor").style = "background-color: blue";
     };
+    document.getElementById("buttonPurple").onclick = function(){
+            document.getElementById("currcolor").style = "background-color: purple";
+    };
     document.getElementById("buttonBlack").onclick = function(){
             document.getElementById("currcolor").style = "background-color: black";
     };
