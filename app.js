@@ -19,51 +19,32 @@ window.onload = function(){
 
     window.setInterval(getPredictionAndDraw, 500);  // run drawing every .5 sec
 
-    //make this into a key listner as well!!!!!
-    document.getElementById("play").onclick = function(){
+    //start/stop by button or by hitting any key
+    document.getElementById("play").onclick = gamePlay;
+    document.onkeypress = gamePlay;
+
+
+    function gamePlay(){ 
         var state = document.getElementById("play").value;
         if (state == "start") {
             document.getElementById("play").value = "stop";
             if (gameStart == true){
                 webgazer.resume();
                 paused = false;
-            } else { // if game hasn't been started, and you've pressed start
+            } else { // If game hasn't been started, and you've pressed start
 
-                    webgazer.begin();   // added by B
-                    // webgazer.setGazeListener(function(data, elapsedTime) {
-                    // if (data == null) {
-                    //     return;
-                    // }
+                    webgazer.begin();   
 
                     getPredictionAndDraw();
-                    // MOVED TO FUNCTION 
-                    // getCurrentColor();
-                    // xprediction = data.x; //these x coordinates are relative to the viewport 
-                    // yprediction = data.y; //these y coordinates are relative to the viewport
-                    // ctx.lineTo(xprediction,yprediction);
-                    // ctx.stroke();
-                    // console.log(elapsedTime); //elapsed time is based on time since begin was called
-                    //     }).begin();
-
-                    // webgazer.pause(); // ??
+                    
                     gameStart = true;
                     paused = false;
-
-                    // webgazer.begin();
-                    // var prediction = webgazer.getCurrentPrediction();
-                    // if (prediction) {
-                    //     xprediction = prediction.x;
-                    //     yprediction = prediction.y;
-                    // }
-                    // getCurrentColor();
-                    // ctx.lineTo(xprediction,yprediction);
-                    // ctx.stroke();
-                    // gameStart == true;
             }
         } else {
             document.getElementById("play").value = "start";
             webgazer.pause();
             paused = true;
+  
         }
     };
 

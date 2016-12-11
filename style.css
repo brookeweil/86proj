@@ -23,6 +23,7 @@ canvas {
     border: 1px solid grey
 }
 
+#play {width: 102px;} /* Green */
 #buttonDarkRed {background-color: darkred;} /* Green */
 #buttonRed {background-color: red;} /* Green */
 #buttonOrange {background-color: orange;} /* Blue */
